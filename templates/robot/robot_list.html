@@ -1,0 +1,23 @@
+{% extends 'flatpages/default.html' %}
+
+
+{% block title_page %}
+Robots
+{% endblock title_page %}
+
+{% block content %}
+{% if robot_list %}
+<div class="col-lg-6">
+    <div class="card mb-4">
+        {% for robot in robot_list %}
+        <div class="card-body">
+            <div class="small text-muted">{{robot.created|date:'d M Y'}}</div>
+            <h2 class="card-title">{{robot.serial}}</h2>
+            <p class="card-text">{{robot.model|safe}}</p>
+            <p class="card-text">{{robot.version|safe}}</p>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+{% endblock content %}
